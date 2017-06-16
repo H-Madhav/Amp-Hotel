@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html amp lang="en">
+<head>
+    <meta charset="utf-8">
+    <script async src="https://cdn.ampproject.org/v0.js"></script>
+	<title>Hotel</title>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+	<link rel="canonical" href="room.html" />
+    <meta name="viewport" content="width=device-width,minimum-scale=1,initial-scale=1">
+    <script type="application/ld+json">
+    	{
+	        "@context": "http://schema.org",
+	        "@type": "NewsArticle",
+	        "headline": "Open-source framework for publishing content",
+	        "datePublished": "2015-10-07T12:02:41Z",
+	        "image": [
+	          "logo.jpg"
+	        ]
+        }
+    </script>
+    <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
+    <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
+    <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+    <script async custom-element="amp-iframe" src="https://cdn.ampproject.org/v0/amp-iframe-0.1.js"></script>
+
+    <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
+
+    <style amp-custom>
+		@font-face {
+		    font-family: 'Playfair Display', serif;
+            font-family: 'Muli', sans-serif;
+		    src: url("https://fonts.googleapis.com/css?family=Muli:300|Playfair+Display:400,700");
+		}
+
+		html, body {
+			margin: 0;
+			padding: 0;
+			font-size: 16px;
+		}
+
+		body {
+		    font-family: 'Muli', sans-serif;
+		    font-size: 62.5%;
+		    color: rgb(136, 136, 136);
+		}
+
+		h1, h2, h3, h4, h5, h6 {
+			font-family: 'Playfair Display', serif;
+		}
+
+		h2 {
+            font-size: 1.8em;
+        	font-weight: 700;
+        	color: #33261c;
+		}
+
+		h3 {
+        	font-size: 1.8em;
+        	font-weight: 700;
+            color: #343434;
+        }
+
+		p{
+			font-size: 1.6em;
+			font-weight: normal;
+			line-height: 1.8em;
+		}
+
+		#head {
+			display: block;
+			width: 100%;
+            height: 6em;
+		    padding: 1.5em 0;
+		    z-index: 99;
+		    background: #fff;
+		    position: fixed;
+		    top: 0;
+		    left: 0;
+		    right: 0;
+		    text-align: center;
+		    border-bottom: 2px solid #f5f5f5;
+		}
+
+		#navBar{
+			width: 90%;
+			margin: 0 auto;
+			height: 6em;
+			display: flex;
+			flex-wrap: nowrap;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		#openMenu>button{
+            font-size: 2.8em;
+            background: #fff;
+            border: none;
+            cursor: pointer;
+		}
+
+		.logo>h1 {
+			font-size: 2.8em;
+		    padding: 2px 0 0;
+		    margin: 0;
+		    font-weight: 700;
+		    color: #33261c;
+		    text-transform: uppercase;
+		}
+
+		.book>button {
+            border: none;
+            background: #33261c;
+            color: #fff;
+            font-size: 1.6em;
+            padding: 0.5em;
+            border-radius: 3px;
+		}
+
+		#main {
+			width: 100%;
+			margin-top: 5.9em;
+		}
+
+		.amp-carousel-slide {
+			display: relative;
+		}
+
+		#sidebar {
+            width: 30em;
+            margin-top: 9.2em;
+		}
+
+		#sidebar ul {
+			padding-left: 0;
+			margin: 0;
+			width: 100%;
+		}
+
+        #sidebar ul a {
+            font-size: 1.6em;
+            text-decoration: none;
+            display: block;
+            color: rgba(0,0,0,0.87);
+            height: 48px;
+            line-height: 48px;
+            padding: 0 1.6em;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        #sidebar ul a i{
+        	color: #cbb079;
+        	margin-right: 5px;
+        }
+
+        amp-accordion section h4 {
+            font-size: 1.6em;
+            color: rgba(0,0,0,0.87);
+            height: 48px;
+            line-height: 48px;
+            padding: 0 1.6em;
+            font-weight: 400;
+            font-family: 'Muli', sans-serif;
+            position: relative;
+        }
+
+        amp-accordion section h4 i {
+        	color: #cbb079;
+        	margin-right: 5px;
+        }
+
+        amp-accordion section span i {
+            font-size: 1.6em;
+            position: absolute;
+            top: 30%;
+            right: 5%;
+        }
+
+        .sectionIcon {
+            width: 3em;
+            margin: 0 auto;
+        }   
+
+        .sectionIcon i {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+            font-size: 1.6em;
+            color: rgb(203, 176, 121);
+        }
+
+        .sectionIcon hr {
+            border: solid 1px rgb(203, 176, 121);
+        }
+
+        .aboutPrice {
+            width: 100%;
+            padding: 1em 0.5em;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .roomPriceWrapper {
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+
+        .roomPriceWrapper h3 {
+            margin: 0 0 0.4em;
+        }
+
+        .roomPriceWrapper h4 {
+            font-size: 1.4em;
+            margin: 0 0 0.4em;
+        }
+
+        .roomPriceWrapper span {
+            margin-right: 10px;
+            color: #cbb079;
+            font-weight: 700;
+        }
+
+        .roomName, .roomPrice {
+            padding: 0em 1em;
+        }
+
+        .assuredAmenities {
+            width: 100%;
+            padding: 2em 0em;
+        }
+
+        .assuredAmenities h2 {
+            text-transform: uppercase;
+            padding-bottom: 1em;
+            text-align: center;
+        }
+
+        .assuredAmenitiesWrapper {
+            padding: 0em 1em;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+
+        }
+
+        .assuredAmenitiesWrapper amp-img {
+            display: block;
+            margin: auto;
+        }
+
+        .assuredAmenitiesWrapper h4 {
+            font-size: 1.4em;
+            text-align: center;
+        }
+
+        amp-accordion section>h3 {
+            font-size: 1.8em;
+            height: 48px;
+            line-height: 48px;
+            padding: 0 1.6em;
+            font-weight: 400;
+            font-family: 'Muli', sans-serif;
+            position: relative;
+        }
+
+        amp-accordion section h3 {
+            font-size: 1.8em;
+            padding: 0 1.6em;
+            font-weight: 400;
+            font-family: 'Muli', sans-serif;
+        }
+
+        amp-accordion section > h3 span {
+            position: absolute;
+            right: 5%;
+            top: 25%;
+            font-size: 1.4em;
+            color: #cbb079;
+        }
+
+        amp-accordion section ul li {
+            font-size: 1.6em;
+        }
+
+        amp-accordion section p {
+            padding: 0em 1em;
+        }
+
+        .similarRoom {
+            width: 100%;
+            padding: 2em 0.5em;
+        }
+
+        .similarRoom h2 {
+            text-transform: uppercase;
+            text-align: center;
+            padding-bottom: 1em;
+        }
+
+        .similarRoomWrapper {
+            width: 100%;
+        }
+        .room {
+            width: 100%;
+            display: flex;
+            flex-wrap: nowrap;
+            border-bottom: solid 1px #ddd;
+            padding: 1em;
+            position: relative;
+        }
+
+        .roomImgHolder {
+            width: 150px;
+            height: 110px;
+            margin-right: 1em; 
+        }
+
+        .roomListPrice h3 {
+            margin: 0;
+        }
+
+        .roomListPrice h4{
+            margin: 0.2em 0 1em;
+        }
+
+        .roomNewPrice {
+            margin-top: 2.8em;
+        }
+
+        .roomNewPrice h4 {
+            margin: 0.2em 0;
+        }
+
+        .roomNewPrice span {
+            margin-left: 0.5em;
+            color: #cbb079;
+            font-weight: 700;
+        }
+
+        .roomNewPrice a {
+            background: #cbb079;
+            color: #fff;
+            padding: 4px 12px;
+            border-radius: 2px;
+            font-size: 13px;
+            font-weight: 400;
+            text-decoration: none;
+            position: absolute;
+            bottom: 5%;
+            right: 10%;
+        }
+
+        #map {
+            width: 100%;
+            padding: 2em 0 0;
+        }
+
+        #map h2 {
+            text-transform: uppercase;
+            text-align: center;
+            padding-bottom: 1em;
+        }
+
+        footer {
+        	width: 100%;
+        	padding: 4em 0 1em;
+        	background: #33261c;
+            margin-bottom: 4em;
+        }
+
+        footer h2{
+        	text-align: center;
+        	color: #fff;
+        }
+
+        footer ul{
+        	padding: 0;
+        	text-align: center;
+        }
+
+        footer ul a {
+        	margin-right: 0.2em;
+        	font-size: 1.8em;
+        	color: #fff;
+        	padding: 0.5em;
+        }
+
+        footer ul li {
+        	color: #fff;
+        	font-size: 1.6em;
+        }
+
+        footer p {
+        	text-align: center;
+        	color: #fff;
+        	padding: 1em 0em 0em;
+        	border-top: dotted 1px #fff;
+        }
+
+        body {
+            position: relative;
+        }
+
+        .roomBook {
+            width: 100%;
+            background: #cbb079;
+            color: #fff;
+            height: 48px;
+            line-height: 48px;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+        }
+        .roomBook a {
+            font-size: 1.6em;
+            display: block;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            text-transform: uppercase;
+        }
+
+    </style>
+</head>
+<body>
+    <header id="head">
+    	<nav id="navBar">
+    	    <div id="openMenu">
+    	    	<button on="tap:sidebar.toggle" class="ampstart-btn caps m2">&#9776;</button>
+    	    </div>
+    		<div class="logo">
+    			<h1>Hotel</h1>
+    		</div>
+    		<div class="book">
+    			<button>Book</button>
+    		</div>
+    	</nav>
+    </header>
+    <amp-sidebar id='sidebar' layout='nodisplay' side="left">
+        <amp-img class="amp-close-image"
+		    src="img/cancel.png"
+		    width="0"
+		    height="0"
+		    alt="close sidebar"
+		    on="tap:sidebar.close"
+		    role="button"
+		    tabindex="0">	
+		</amp-img>
+		<ul>
+		    <a href="#"><i class="fa fa-home" aria-hidden="true"></i> Home</a>
+		</ul>
+		<amp-accordion>
+			<section>
+			    <h4><i class="fa fa-file-text-o"></i> Categories <span><i class="fa fa-angle-right" aria-hidden="true"></i></span></h4>
+			    <ul>
+			    	<a href="#">Single Room</a>
+			    	<a href="#">Double Room</a>
+			    	<a href="#">Winsome Room</a>
+			    	<a href="#">Clasic Room</a>
+			    </ul>
+			</section>
+		</amp-accordion>
+		<ul>
+			<a href="#"><i class="fa fa-list" aria-hidden="true"></i> Room List</a>
+			<a href="#"><i class="fa fa-paper-plane" aria-hidden="true"></i> Book Now</a>
+		</ul>
+		<amp-accordion>
+			<section>
+			    <h4><i class="fa fa-user" aria-hidden="true"></i> About Us <span><i class="fa fa-angle-right" aria-hidden="true"></i></span></h4>
+			    <ul>
+			    	<a href="#">About Us</a>
+			    	<a href="#">Our Client</a>
+			    	<a href="#">Contact Us</a>
+			    	<a href="#">Food &amp; Beverages</a>
+			    	<a href="#">Why theperch</a>
+			    	<a href="#">Franchise</a>
+			    </ul>
+			</section>
+		</amp-accordion>
+    </amp-sidebar>
+    <div id="main">
+    	<amp-carousel width="400" height="300" layout="responsive" type="slides" autoplay delay="3000">
+    	        <div class="slide">
+				    <amp-img src="img/slider1.jpg"
+				    width="400"
+				    height="300"
+				    layout="fill"
+				    alt="slider1 image">
+				    </amp-img>
+			    </div>
+
+                <div class="slide">
+				    <amp-img src="img/slider2.jpg"
+				    width="400"
+				    height="300"
+				    layout="fill"
+				    alt="slider2 image">
+				    </amp-img>
+			    </div>
+
+                <div class="slide">
+				    <amp-img src="img/slider3.jpg"
+				    width="400"
+				    height="300"
+				    layout="fill"
+				    alt="slider3 image">	
+				    </amp-img>
+			    </div>
+        </amp-carousel>
+
+        <div class="aboutPrice">
+            <div class="roomPriceWrapper">
+                <div class="roomName">
+                    <h3>Hotel</h3>
+                    <h4>sector-40/Gurugram</h4>
+                </div>
+                <div class="roomPrice">
+                    <h3><i class="fa fa-inr" aria-hidden="true"></i> 3,654</h3>
+                    <h4><span>15% off </span> <strike> <i class="fa fa-inr" aria-hidden="true"></i> 4299</strike></h4>
+                    <h4>Incl. of all Taxes</h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="assuredAmenities">
+            <div class="sectionIcon">
+                <i class="fa fa-align-center"></i>
+                <hr>
+            </div>
+            <h2>Assured Amenities</h2>
+            <div class="assuredAmenitiesWrapper">
+                <div>
+                    <amp-img src="img/air-conditioner.png" width='24' height='24' alt="air-conditioner"></amp-img>
+                    <h4>Ac</h4>
+                </div>
+                <div>
+                    <amp-img src='img/toiletries.png' width='24' height="24" alt="toiletries"></amp-img>
+                    <h4>Toiletries</h4>
+                </div>
+                <div>
+                    <amp-img src='img/breakfast.png' width='24' height="24" alt="breakfast"></amp-img>
+                    <h4>Breakfast</h4>
+                </div>
+                <div>
+                    <amp-img src='img/Tv.png' width='24' height="24" alt="Tv"></amp-img>
+                    <h4>TV</h4>
+                </div>
+                <div>
+                    <amp-img src='img/wifi.png' width='24' height="24" alt="wifi"></amp-img>
+                    <h4>Wifi</h4>
+                </div>
+            </div>
+        </div>
+
+        <amp-accordion disable-session-states>
+            <section>
+                <h3>About Room<span><i class="fa fa-angle-right" aria-hidden="true"></i></span></h3>
+                <div>
+                    <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s</p>
+                </div>
+            </section>
+        </amp-accordion>
+
+        <amp-accordion disable-session-states>
+            <section>
+                <h3> Amenities &amp; Accessibility <span><i class="fa fa-angle-right" aria-hidden="true"></i></span></h3>
+                <div class="abourWrapper">
+                    <div class="amenities">
+                        <h3>Amenities</h3>
+                        <ul>
+                            <li>Ironing Board</li>
+                            <li>Guest Laundry</li>
+                            <li>Parking</li>
+                            <li>Easily Accessible from Railway Station</li>
+                            <li>AC Room</li>
+                        </ul>
+                    </div>
+                    <div class="accessibility">
+                        <h3>Accessibility</h3>
+                        <ul>
+                            <li>Matro - 1Km</li>
+                            <li>Abc - 2Km</li>
+                            <li>Delhi - 30Km </li>
+                            <li>Easily Accessible from Railway Station</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+        </amp-accordion>
+
+        <amp-accordion disable-session-states>
+            <section>
+                <h3>Policies<span><i class="fa fa-angle-right" aria-hidden="true"></i></span></h3>
+                <div>
+                    <p>Standard Check-In Time - <b>12:00 PM</b></p>
+                    <p>Standard Check-Out Time - <b>11:00 AM</b></p>
+                </div>
+            </section>
+        </amp-accordion>
+
+        <div class="similarRoom">
+            <div class="sectionIcon">
+                <i class="fa fa-align-center"></i>
+                <hr>
+            </div>
+            <h2>Similar Room</h2>
+            <div class="similarRoomWrapper">
+                <div class="room">
+                    <div class="roomImgHolder">
+                        <amp-img src="img/roomList1.jpg" alt="roomList1" layout="responsive" width="150" height="110"></amp-img>
+                    </div>
+                    <div class="roomListPrice">
+                        <h3>Hotel New Castle</h3>
+                        <h4>Gurugram</h4>
+                        <div class="roomNewPrice">
+                            <h4><strike> <i class="fa fa-inr" aria-hidden="true"></i> 4299</strike> <span>15% off </span></h4>
+                            <h3><i class="fa fa-inr" aria-hidden="true"></i> 3,654 </h3>
+                            <h4>Incl. of all Taxes</h4>
+                            <a href="#">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room">
+                    <div class="roomImgHolder">
+                        <amp-img src="img/roomList2.jpg" alt="roomList1" layout="responsive" width="150" height="110"></amp-img>
+                    </div>
+                    <div class="roomListPrice">
+                        <h3>Hotel New Castle</h3>
+                        <h4>Gurugram</h4>
+                        <div class="roomNewPrice">
+                            <h4><strike> <i class="fa fa-inr" aria-hidden="true"></i> 4299</strike> <span>15% off </span></h4>
+                            <h3><i class="fa fa-inr" aria-hidden="true"></i> 3,654 </h3>
+                            <h4>Incl. of all Taxes</h4>
+                            <a href="#">View</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="room">
+                    <div class="roomImgHolder">
+                        <amp-img src="img/roomList1.jpg" alt="roomList1" layout="responsive" width="150" height="110"></amp-img>
+                    </div>
+                    <div class="roomListPrice">
+                        <h3>Hotel New Castle</h3>
+                        <h4>Gurugram</h4>
+                        <div class="roomNewPrice">
+                            <h4><strike> <i class="fa fa-inr" aria-hidden="true"></i> 4299</strike> <span>15% off </span></h4>
+                            <h3><i class="fa fa-inr" aria-hidden="true"></i> 3,654 </h3>
+                            <h4>Incl. of all Taxes</h4>
+                            <a href="#">View</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="map">
+            <div class="sectionIcon">
+                <i class="fa fa-align-center"></i>
+                <hr>
+            </div>
+            <h2>Locate Us</h2>
+            <amp-iframe width="600"
+                height="400"
+                layout="responsive"
+                sandbox="allow-scripts allow-same-origin allow-popups" frameborder="0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ2eUgeAK6j4ARbn5u_wAGqWA&key=AIzaSyCNCZ0Twm_HFRaZ5i-FuPDYs3rLwm4_848">
+            </amp-iframe>
+        </div>
+
+        <footer>
+            <h2>Find &amp; Follow Us</h2>
+        	<div class="footerWrapper">
+        	    <ul>
+        	     	<a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+        	     	<a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a>
+        	     	<a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a>
+        	    </ul>
+        	    <ul>
+        	    	<li>Tel: 8900000000</li>
+        	    	<li>Fax: 0400000098</li>
+        	    	<li>Email: info@youremail.com</li>
+        	    </ul>
+        	    <p>Copyright © 2017 All Rights Reserved</p>
+        	</div>
+        </footer>
+        <div class="roomBook">
+            <a href="#">Book Now</a>
+        </div>
+    </div>
+</body>
+</html>
