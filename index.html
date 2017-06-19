@@ -21,6 +21,8 @@
     <script async custom-element="amp-sidebar" src="https://cdn.ampproject.org/v0/amp-sidebar-0.1.js"></script>
     <script async custom-element="amp-carousel" src="https://cdn.ampproject.org/v0/amp-carousel-0.1.js"></script>
     <script async custom-element="amp-accordion" src="https://cdn.ampproject.org/v0/amp-accordion-0.1.js"></script>
+    <script async custom-element="amp-form" src="https://cdn.ampproject.org/v0/amp-form-0.1.js"></script>
+    <script async custom-element="amp-lightbox" src="https://cdn.ampproject.org/v0/amp-lightbox-0.1.js"></script>
 
     <style amp-boilerplate>body{-webkit-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-moz-animation:-amp-start 8s steps(1,end) 0s 1 normal both;-ms-animation:-amp-start 8s steps(1,end) 0s 1 normal both;animation:-amp-start 8s steps(1,end) 0s 1 normal both}@-webkit-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-moz-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-ms-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@-o-keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}@keyframes -amp-start{from{visibility:hidden}to{visibility:visible}}</style><noscript><style amp-boilerplate>body{-webkit-animation:none;-moz-animation:none;-ms-animation:none;animation:none}</style></noscript>
 
@@ -304,6 +306,7 @@
         	width: 100%;
         	padding: 4em 0 2em;
         	background: #e6e6e6;
+
         }
         
         .rooms h2 {
@@ -330,8 +333,9 @@
         }
 
         .aboutRoom {
-        	width: 90%;
+        	width: 100%;
         	margin: 0 auto;
+            position: relative;
         }
         .aboutRoom p {
         	border-bottom: dotted 1px #333;
@@ -346,7 +350,7 @@
         	color: #cbb079;
         }
 
-        .viewMore a {
+        .viewMore a, .aboutRoom a {
         	display: block;
         	width: 6em;
         	text-align: center;
@@ -358,6 +362,13 @@
             font-size: 13px;
             font-weight: 400;
             text-decoration: none;
+        }
+
+        .aboutRoom a {
+            position: absolute;
+            bottom: 0;
+            right: 0;
+            width: 2.5em;
         }
 
         .services {
@@ -383,14 +394,15 @@
         	position: relative;
         }
 
-        .service h2 {
+        .service a {
             position: absolute;
-            bottom: 0;
+            bottom: 5%;
             left: 0;
             z-index: 1;
             color: #fff;
             background: rgba(0, 0, 0, 0.46);
             padding: 0.5em;
+            font-size: 1.8em;
         }
 
         .review {
@@ -435,6 +447,42 @@
             margin: 0;
         }
 
+        .pioneers {
+            width: 100%;
+            padding: 2em 0.5em;
+            background: #e6e6e6;
+        }
+
+        .pioneers p {
+            padding: 0.5em;
+        }
+
+        .pioneers h2 {
+            text-align: center;
+            padding-bottom: 1em;
+            text-transform: uppercase;
+        }
+
+        amp-accordion section[expanded] .show-more {
+            display: none;
+        }
+
+        amp-accordion section:not([expanded]) .show-less {
+            display: none;
+        }
+
+        .pioneers>amp-accordion h4 {
+            width: 22%;
+            height: 2em;
+            line-height: 2em;
+            text-align: center;
+            background-color: #cbb079;
+            color: #fff;
+            font-size: 13px;
+            border-radius: 2px;
+            margin-left: 0.5em;
+        }
+
         footer {
         	width: 100%;
         	padding: 4em 0 1em;
@@ -470,6 +518,118 @@
         	border-top: dotted 1px #fff;
         }
 
+        form.amp-form-submit-success [submit-success],
+        form.amp-form-submit-error [submit-error]{
+          margin-top: 16px;
+        }
+
+        form.amp-form-submit-success [submit-success] {
+          color: green;
+        }
+
+        form.amp-form-submit-error [submit-error] {
+          color: red;
+        }
+
+        form.amp-form-submit-success.hide-inputs > input {
+          display: none;
+        }
+
+        /*----------booking--------------*/
+        #bookingWrapper{
+            position: fixed; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            overflow: auto; 
+            background-color: rgb(0,0,0); 
+            background-color: rgba(0,0,0,0.4); 
+        }
+
+        .booking{
+            background-color: #f6f6f6;
+            margin: 25% auto 0; 
+            width: 40em; 
+        }
+        .formHeading{
+            background-color: #191919;
+        }
+
+        .booking form{
+           padding: 2em;
+        }
+
+        .booking input, select{
+            background-color: #DFE2DB;
+            padding: 0.5em ;
+            border:solid 1px #888 ;
+            margin-bottom: 1em;
+        }
+
+        .booking input[type="email"],
+        input[type="text"] {
+            width: 100%;
+        }
+
+        .booking select{
+            width: 100%;
+        }
+
+        .booking label{
+            color: #33261c;
+            font-size: 1.4em;
+        }
+
+        .numberContainer{
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: space-between;
+        }
+
+        .numberContainer div:first-child{
+            width: 25%;
+            margin-right: 1em;
+        }
+
+        .procced button{
+           border: none;
+           background: #191919;
+           border-radius: 5px;
+           color: #e7ad44;
+           font-size: 1.6em;
+           padding: 0.5em;
+           cursor: pointer;
+           transition: color 0.4s
+        }
+
+        .procced button:hover{
+            color: #e7ad44;
+        }
+
+        .formHeading{
+            padding: 1em;
+            position: relative;
+        }
+
+        .formHeading h2{
+            color: #e7ad44;
+            text-transform: uppercase;
+            font-size: 2em;
+            text-align: center;
+            font-weight: 400;
+        }
+
+        .formHeading span{
+            position: absolute;
+            top: 13%;
+            right: 1%;
+            font-size: 3em;
+            padding: 0 0.5em;
+            color: #fff;
+            cursor: pointer;
+            transition: all 0.4s;
+        }
     </style>
 </head>
 <body>
@@ -482,7 +642,7 @@
     			<h1>Hotel</h1>
     		</div>
     		<div class="book">
-    			<button>Book</button>
+    			<button class="ampstart-btn caps m2" on="tap:my-lightbox" role="button" tabindex="0">Book</button>
     		</div>
     	</nav>
     </header>
@@ -623,15 +783,15 @@
         	<div class="serviceContainer">
         		<div class="service">
         			<amp-img src="img/room.jpg" alt='roomService' width="150" height="200" layout="responsive">
-        			<h2>Room</h2>
+        			<a href="#">Room</a>
         		</div>
         		<div class="service">
         			<amp-img src="img/restaurant.jpg" alt='roomService' width="150" height="200" layout="responsive">
-                    <h2>Restaurant</h2>
+                    <a href="#">Restaurant</a>
         		</div>
         		<div class="service">
         			<amp-img src="img/spa.jpg" alt='roomService' width="150" height="200" layout="responsive">
-        			<h2>Spa</h2>
+        			<a href="#">Marriage</a>
         		</div>
         	</div>
         </div>
@@ -651,6 +811,7 @@
         				<h3>Single Room</h3>
         				<p>Lorem ipsum dolor sit amet . . .</p>
         				<h4><span><i class="fa fa-inr" aria-hidden="true"></i>190</span>/Night</h4>
+                        <a href="#">View</a>
         			</div>
         		</div>
 
@@ -662,6 +823,7 @@
         				<h3>Single Room</h3>
         				<p>Lorem ipsum dolor sit amet . . .</p>
         				<h4><span><i class="fa fa-inr" aria-hidden="true"></i>190</span>/Night</h4>
+                        <a href="#">View</a>
         			</div>
         		</div>
 
@@ -673,6 +835,7 @@
         				<h3>Single Room</h3>
         				<p>Lorem ipsum dolor sit amet . . .</p>
         				<h4><span><i class="fa fa-inr" aria-hidden="true"></i>190</span>/Night</h4>
+                        <a href="#">View</a>
         			</div>
         		</div>
 
@@ -684,6 +847,7 @@
         				<h3>Single Room</h3>
         				<p>Lorem ipsum dolor sit amet . . .</p>
         				<h4><span><i class="fa fa-inr" aria-hidden="true"></i>190</span>/Night</h4>
+                        <a href="#">View</a>
         			</div>
         		</div>
         	</div>
@@ -744,6 +908,67 @@
 			</div>
         </amp-carousel>
 
+        <div class="pioneers">
+            <div class="sectionIcon">
+                <i class="fa fa-align-center"></i>
+                <hr>
+            </div>
+            <h2>pioneer in TOURISM INDUSTRY</h2> 
+            <p>We are Professionally run organization and strive for 100% guest satisfaction every time.</p>
+            <amp-accordion disable-session-states>
+                    <section>
+                        <h4>
+                          <span class="show-more">Show more</span>
+                          <span class="show-less">Show less</span>
+                        </h4>
+                        <p>Our rest Alka Motel was designed to be is away from the hustle bustle of Bulandshahr, yet close to the main town. Alka boasts of resort-like surroundings with a large lawn and great amenities. The staff at Alka is professional and will take care of everything. The resort itself is away from noise levels yet has access to all the access to main roads as well as building amenities. We are at the the safest and most central locations on the Meerut - Hapur Highway in Uttar Pradesh. In the coming few months, we will be opening in a few more select cities.Affordability is our Mantra:  60% cheaper than 4/5 Star Hotels in Uttar Pradesh. We are superior to budget Hotels in Gurgaon / Delhi NCR in terms of service standards. Online Booking and Free Cancellation makes life very simple!*</p>
+                    </section>
+            </amp-accordion>
+        </div>
+        <amp-lightbox id="my-lightbox" layout="nodisplay">
+        <div class="lightbox">
+        <div id="bookingWrapper">
+            <div class="booking" id="booking">
+                <div class="formHeading">
+                    <h2>Check Availability</h2>
+                    <span class="formClose" on="tap:my-lightbox.close" role="button" tabindex="0">&times;</span>
+                </div>
+                <form method="post" action-xhr="/components/amp-form/submit-form-input-text-xhr" target="_top">
+                    <div>
+                        <label for="name">Name</label><br><br>
+                        <input type="text" name="name" required>
+                    </div>
+                    <div class="numberContainer">
+                        <div>
+                            <label for="isd">ISD Code</label><br><br>
+                            <input type="text" name="isd" required>
+                        </div>
+                        <div>
+                            <label for="number">Number</label><br><br>
+                            <input type="text" name="number" required>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="email">Email</label><br><br>
+                        <input type="email" name="email" required>
+                    </div>
+                    <div>
+                        <label for="email">Room</label><br><br>
+                        <select>
+                            <option>Select Room</option>
+                            <option>Winsome</option>
+                            <option>Delux</option>
+                            <div>xyx</div>
+                        </select><br><br>
+                    </div>
+                    <div class="procced">
+                        <button>procced</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        </div>
+        </amp-lightbox>
         <footer>
             <h2>Find &amp; Follow Us</h2>
         	<div class="footerWrapper">
